@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ulstr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/26 17:41:35 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/26 17:45:57 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
+#include<unistd.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+int	main(int ac, char *av[])
 {
 	int	i;
-	int	n;
 
 	i = 0;
-	n = 0;
-	while (s[i])
+	if (ac == 2)
 	{
-		n = 0;
-		while (reject[n] != '\0')
+		while (av[1][i])
 		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
+			if (av[1][i] >= 'a' && av[1][i] <= 'z')
+				av[1][i] = av[1][i] - 32;
+			else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+				av[1][i] = av[1][i] + 32;
+			write (1, &av[1][i], 1);
+			i++;
 		}
-		i++;
 	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	write(1, &av[1][i], 1);
 }

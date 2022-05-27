@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/26 17:17:35 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/26 17:18:20 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
-
-size_t	ft_strcspn(const char *s, const char *reject)
+void	ft_swap(int *a, int *b)
 {
-	int	i;
-	int	n;
+	int	z;
 
-	i = 0;
-	n = 0;
-	while (s[i])
-	{
-		n = 0;
-		while (reject[n] != '\0')
-		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
-		}
-		i++;
-	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	z = *a;
+	*a = *b;
+	*b = z;
 }

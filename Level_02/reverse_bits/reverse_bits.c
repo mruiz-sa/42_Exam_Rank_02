@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   reverse_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/27 16:59:39 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/27 17:09:32 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
 #include<stdio.h>
-#include<string.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+unsigned char	reverse_bits(unsigned char octet)
 {
 	int	i;
-	int	n;
+	int	r;
 
-	i = 0;
-	n = 0;
-	while (s[i])
+	i = 8;
+	r = 0;
+	while (i > 0)
 	{
-		n = 0;
-		while (reject[n] != '\0')
-		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
-		}
-		i++;
+		r = (r << 1) | (octet & 1);
+		octet = octet / 2;
+		i--;
 	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	return (r);
 }

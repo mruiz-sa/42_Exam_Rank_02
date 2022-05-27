@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/26 18:05:48 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/26 18:30:52 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
 #include<string.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
 	int	i;
-	int	n;
+	int	c;
 
 	i = 0;
-	n = 0;
-	while (s[i])
+	c = 0;
+	while (s1[i])
 	{
-		n = 0;
-		while (reject[n] != '\0')
+		while (s2[c])
 		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
+			if (s1[i] == s2[c])
+				return ((char *)&s1[i]);
+			c++;
 		}
+		c = 0;
 		i++;
 	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	return (NULL);
 }

@@ -1,39 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   swap_bits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/27 17:27:07 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/27 17:28:13 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
-
-size_t	ft_strcspn(const char *s, const char *reject)
+unsigned char	swap_bits(unsigned char octet)
 {
-	int	i;
-	int	n;
-
-	i = 0;
-	n = 0;
-	while (s[i])
-	{
-		n = 0;
-		while (reject[n] != '\0')
-		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
-		}
-		i++;
-	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	return ((octet << 4) | (octet >> 4));
 }

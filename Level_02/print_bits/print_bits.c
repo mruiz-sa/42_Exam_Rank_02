@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/24 18:10:27 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/24 18:32:16 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
 #include<stdio.h>
-#include<string.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+void	print_bits(unsigned char octet)
 {
 	int	i;
-	int	n;
 
-	i = 0;
-	n = 0;
-	while (s[i])
+	i = 128;
+	while (i > 0)
 	{
-		n = 0;
-		while (reject[n] != '\0')
+		if (octet >= i)
 		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
+			write (1, "1", 1);
+			octet = octet % i;
+			i = i / 2;
 		}
-		i++;
+		else
+		{
+			write (1, "0", 1);
+			i = i / 2;
+		}
 	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }

@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   first_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/26 17:03:44 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/26 17:11:55 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
+#include<unistd.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+int	main(int ac, char *av[])
 {
 	int	i;
-	int	n;
 
 	i = 0;
-	n = 0;
-	while (s[i])
+	if (ac == 2)
 	{
-		n = 0;
-		while (reject[n] != '\0')
+		while (av[1][i] == ' ' || av[1][i] == '\t')
+			i++;
+		while (av[1][i] && av[1][i] != ' ' && av[1][i] != '\t')
 		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
+			write (1, &av[1][i], 1);
+			i++;
 		}
-		i++;
 	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	write(1, "\n", 1);
 }

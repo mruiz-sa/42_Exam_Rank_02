@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   max.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/24 17:32:59 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/24 17:56:46 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
-
-size_t	ft_strcspn(const char *s, const char *reject)
+int	max(int *tab, unsigned int len)
 {
 	int	i;
-	int	n;
+	int	tmp;
 
 	i = 0;
-	n = 0;
-	while (s[i])
+	if (len == 0)
+		return (0);
+	while (i < len - 1)
 	{
-		n = 0;
-		while (reject[n] != '\0')
+		if (tab[i] > tab[i + 1])
 		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
+			tmp = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = tmp;
 		}
 		i++;
 	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	return (tab[len - 1]);
 }

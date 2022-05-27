@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/26 18:33:20 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/26 18:58:26 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
 #include<string.h>
+#include<stdio.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+size_t	ft_strspn(const char *s, const char *accept)
 {
 	int	i;
-	int	n;
 
 	i = 0;
-	n = 0;
-	while (s[i])
-	{
-		n = 0;
-		while (reject[n] != '\0')
-		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
-		}
-		i++;
-	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+}
+
+int	main(void)
+{
+	printf("%zu\n", strspn("mikel", "jsjsjsmjsjsjijsjsjkjsjsjejsjsjl"));
+	printf("%zu", ft_strspn("mikel", "jsjsjsmjsjsjijsjsjkjsjsjejsjsjl"));
 }

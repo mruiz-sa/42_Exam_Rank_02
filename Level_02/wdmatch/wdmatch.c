@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   wdmatch.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 19:20:45 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:53:46 by mruiz-sa         ###   ########.fr       */
+/*   Created: 2022/05/27 18:02:58 by mruiz-sa          #+#    #+#             */
+/*   Updated: 2022/05/27 18:22:11 by mruiz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
+#include<unistd.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+int	main(int ac, char **av)
 {
 	int	i;
-	int	n;
+	int	c;
 
 	i = 0;
-	n = 0;
-	while (s[i])
+	c = 0;
+	if (ac == 3)
 	{
-		n = 0;
-		while (reject[n] != '\0')
+		while (av[1][i])
 		{
-			if (s[i] == reject[n])
-				return (i);
-			n++;
+			while (av[1][i] != av[2][c] && av[2][c] != '\0')
+				c++;
+			if (av[2][c] == '\0')
+			{
+				write(1, "\n", 1);
+				return (0);
+			}
+			i++;
+			c++;
 		}
-		i++;
+		write(1, av[1], i);
 	}
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	write(1, "\n", 1);
 }
