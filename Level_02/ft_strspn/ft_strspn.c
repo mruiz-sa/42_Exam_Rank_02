@@ -1,27 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strspn.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 18:33:20 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/05/26 18:58:26 by mruiz-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include<string.h>
 #include<stdio.h>
 
-size_t	ft_strspn(const char *s, const char *accept)
+char	*ft_strchr(const char *s, char c)
 {
 	int	i;
 
 	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return ((char *)s);
+		i++;
+	}
+	return (0);
 }
 
-int	main(void)
+size_t	ft_strspn(const char *s, const char *accept)
 {
-	printf("%zu\n", strspn("mikel", "jsjsjsmjsjsjijsjsjkjsjsjejsjsjl"));
-	printf("%zu", ft_strspn("mikel", "jsjsjsmjsjsjijsjsjkjsjsjejsjsjl"));
+	size_t i = 0;
+
+	while (s[i])
+	{
+		if (ft_strchr(accept, s[i]) == 0)
+			break ;
+		i++;
+	}
+	return (i);
 }
