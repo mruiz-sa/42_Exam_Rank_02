@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mruiz-sa <mruiz-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/01 19:19:39 by mruiz-sa          #+#    #+#             */
-/*   Updated: 2022/06/01 19:52:49 by mruiz-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include<stdio.h>
 #include<stdlib.h>
 
 int	absolute_value(int i)
@@ -45,7 +32,7 @@ char	*ft_itoa(int nbr)
 	str[len] = '\0';
 	if (nbr < 0)
 		str[0] = '-';
-	while (len > 0)
+	while (nbr != 0)
 	{
 		len--;
 		str[len] = absolute_value(nbr % 10) + '0';

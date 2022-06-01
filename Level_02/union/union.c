@@ -1,4 +1,3 @@
-
 #include<unistd.h>
 
 int	check_doubles(char *str, char c, int pos)

@@ -1,4 +1,3 @@
-
 #include<unistd.h>
 
 void	putnbr(int i)

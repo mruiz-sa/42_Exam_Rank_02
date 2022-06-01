@@ -1,5 +1,5 @@
-
 #include <stdio.h>
+#include <stdlib.h>
 
 void	do_op(char *nb1, char *op, char *nb2)
 {
@@ -23,10 +23,10 @@ void	do_op(char *nb1, char *op, char *nb2)
 	printf("%d\n", r);
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	if (argc == 4)
-		do_op(argv[1], argv[2], argv[3]);
+	if (ac == 4)
+		do_op(av[1], av[2], av[3]);
 	else
 		printf("\n");
 	return (0);

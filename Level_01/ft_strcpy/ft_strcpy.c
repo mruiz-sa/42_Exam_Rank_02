@@ -1,4 +1,3 @@
-
 char	*ft_strcpy(char *dst, char *src)
 {
 	int	i;

@@ -1,10 +1,9 @@
-
 int	is_power_of_2(unsigned int n)
 {
-	unsigned long	i;
+	int	i;
 
 	i = 1;
-	while (i < 4294967295)
+	while (i <= n)
 	{
 		if (i == n)
 			return (1);

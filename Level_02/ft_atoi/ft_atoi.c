@@ -1,3 +1,4 @@
+#include<stdio.h>
 
 int	ft_atoi(char *str)
 {
@@ -13,14 +14,14 @@ int	ft_atoi(char *str)
 		i++;
 	if (str[i] == '-')
 	{
-		numb = -1;
+		sign = -1;
 		i++;
 	}
 	else if (str[i] == '+')
 		i++;
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		numb = numb * 10 + (str[i] + '0');
+		numb = numb * 10 + (str[i] - '0');
 		i++;
 	}
 	return (numb * sign);

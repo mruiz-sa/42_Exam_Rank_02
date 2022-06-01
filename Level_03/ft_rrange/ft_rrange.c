@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 
 int	absolute_value(int n)
