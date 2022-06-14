@@ -1,5 +1,3 @@
-#include<unistd.h>
-
 void	ft_capitalizer(char *str)
 {
 	int	i;

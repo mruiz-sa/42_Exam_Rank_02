@@ -1,8 +1,6 @@
-#include<stdio.h>
-
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
-	int	i;
+	unsigned int	i;
 
 	i = a;
 	if (a == 0 || b == 0)
@@ -13,4 +11,5 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 			return (i);
 		i++;
 	}
+	return (0);
 }

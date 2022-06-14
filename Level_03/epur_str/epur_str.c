@@ -1,5 +1,3 @@
-#include<unistd.h>
-
 int	checker(char *str)
 {
 	int	i;
@@ -36,7 +34,7 @@ int	main(int ac, char **av)
 				i++;
 			}
 			while (av[1][i] == ' ' || av[1][i] == '\t')
-				i++;
+			i++;
 		}
 	}
 	write(1, "\n", 1);
