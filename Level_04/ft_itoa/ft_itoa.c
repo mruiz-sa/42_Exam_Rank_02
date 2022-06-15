@@ -1,4 +1,5 @@
 #include<stdlib.h>
+#include<stdio.h>
 
 int	absolute_value(int i)
 {
@@ -32,6 +33,8 @@ char	*ft_itoa(int nbr)
 	str[len] = '\0';
 	if (nbr < 0)
 		str[0] = '-';
+	if (nbr == 0)
+		str[0] = '0';
 	while (nbr != 0)
 	{
 		len--;
