@@ -10,7 +10,10 @@ int	main(int ac, char *av[])
 		while (av[1][i])
 		{
 			if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+			{
 				write(1, "_", 1);
+				av[1][i] = av[1][i] + 32;
+			}
 			write(1, &av[1][i], 1);
 			i++;
 		}
